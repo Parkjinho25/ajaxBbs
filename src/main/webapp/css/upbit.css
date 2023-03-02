@@ -1,0 +1,128 @@
+/* 업비트 API */
+@media (min-width: 992px) {
+    .price-wrap ,.price-wrap2{
+        height: 35px;
+        /*background: #f8f8f8 url(images/bg.svg);*/
+    }
+}
+
+.price-wrap ,.price-wrap2 {
+    position: sticky;
+    top: -15px;
+    display: inline-block;
+    padding: 0;
+    margin: 35px 15px 0 15px;
+    box-sizing: border-box;
+    width: 400px;
+    background-color: #161a1e;
+    /*box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: 9998;
+    font-size: 1.0rem !important;
+    color: #fff !important;
+    border: 0 solid #d0d0d0;
+    background: #f1f1f191;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 18%);
+}
+
+.price-wrap:after{
+    content: 'Upbit  ';
+    display: inline-block;
+    height: 100%;
+    background-color: #093687;
+    padding: 10px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.price-wrap2:after{
+    content: 'Bithumb';
+    display: inline-block;
+    height: 100%;
+    background-color: #DC7F48FF;
+    padding: 10px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.ticker-txt {
+    color: #333 !important;
+    font-weight: bold;
+    font-family: Maplestory-Light !important;
+}
+
+
+.slide-wrap>span {
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    transform: translate(0, -50%);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 110px;
+    height: 20px;
+    white-space: nowrap;
+    text-align: center;
+    color: #333;
+    font-size: 1.1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    z-index: 9997;
+}
+
+.slide-wrap>span span {
+    font-size: 13px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ticker-price-fall {
+    color: #f6465d;
+    margin: 0;
+}
+
+.ticker-price-rise, .bithumb_BTC, .bithumb_ETH, .bithumb_XRP {
+    color: #0ecb81;
+    margin: 0;
+}
+
+.ticker-price-same {
+    color: #fff;
+    margin: 0;
+}
+
+.item-BTC {
+    animation: slidingSlow 15s 0s linear infinite;
+}
+
+.item-ETH {
+    animation: slidingSlow 15s 5s linear infinite;
+}
+
+.item-XRP {
+    animation: slidingSlow 15s 10s linear infinite;
+}
+
+@keyframes slidingSlow {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 20%;
+    }
+}

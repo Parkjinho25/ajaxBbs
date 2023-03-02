@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upbit</title>
+   <link rel="stylesheet" href="css/upbit.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var UpBitCallback = function (){
+      var slideBar = document.querySelector(".slide-wrap");
+      var upbit = "https://api.upbit.com/v1/ticker?markets=";
+      var crypto = "KRW-BTC,KRW-ETH,KRW-XRP";
+      $.ajax({
+        url: upbit +crypto,
+        type: "get",
+        dataType: "json",
+        success: function (res){
+          $.each(res,function(idx, ele) {
+            var priceBar = ele.market.substr(4, 4) ? "<span class=\"ticker-txt\">".concat(ele.market.substr(4, 4), " : </span><span class=\"ticker-price-rise\">").concat(ele.trade_price.toLocaleString(), "</span>") :
+                    "<span class=\"ticker-txt\">".concat(ele.market.substr(4, 4), " :</span><span class=\"ticker-price-rise\">").concat(ele.trade_price.toLocaleString(), "</span>");
+            slideBar.children[idx].innerHTML = priceBar;
+          });
+        },
+        error: function (){
+          alert("에러!!!");
+        }
+      });
+      setTimeout(UpBitCallback, 1200);
+    }
+    // 천단위 콤마 함수
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    var BithumbCallBack = function () {
+      var slideBar = document.querySelector(".slide-wrap");
+      $.ajax({
+        url: 'https://api.bithumb.com/public/ticker/ALL',
+        type: "get",
+        dataType: "json",
+        success: function (res){
+          var bithumb_btc = res['data']['BTC']['closing_price'];
+          var bithumb_eth = res['data']['ETH']['closing_price'];
+          var bithumb_xrp = res['data']['XRP']['closing_price'];
+          $('.bithumb_BTC').html(numberWithCommas(bithumb_btc));
+          $('.bithumb_ETH').html(numberWithCommas(bithumb_eth));
+          $('.bithumb_XRP').html(numberWithCommas(bithumb_xrp));
+        },
+        error: function (){
+          alert("에러!!!");
+        }
+      });
+      setTimeout(BithumbCallBack,1200);
+    }
+    $(function (){
+      UpBitCallback();
+      BithumbCallBack();
+    });
+  </script>
+</head>
+<body>
+<div class="price-wrap">
+  <div class="slide-wrap">
+    <span class="item-BTC">
+      <i class="bx bxl-bitcoin"></i>
+      <span class="ticker-price-rise">0</span>
+    </span>
+    <span class="item-ETH">
+      <!--<span class="ticker-txt">ETH : </span>-->
+      <i class="bx bxl-ethereum"></i>
+      <span class="ticker-price-rise">0</span>
+    </span>
+    <span class="item-XRP">
+      <!--<span class="ticker-txt">ADA : </span>-->
+      <i class="bx bxl-xrp"></i>
+      <span class="ticker-price-rise">0</span>
+    </span>
+  </div>
+</div>
+
+<div class="price-wrap2">
+  <div class="slide-wrap">
+    <span class="item-BTC">
+      <span class="ticker-txt">BTC : </span>
+      <span class="bithumb_BTC"></span>
+    </span>
+    <span class="item-ETH">
+      <span class="ticker-txt">ETH : </span>
+      <span class="bithumb_ETH"></span>
+    </span>
+    <span class="item-XRP">
+      <span class="ticker-txt">XRP : </span>
+      <span class="bithumb_XRP"></span>
+    </span>
+  </div>
+</div>
+</body>
+</html>
