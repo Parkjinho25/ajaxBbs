@@ -125,7 +125,7 @@ var login = function () {
 
 
 function getList() {
-	$.getJSON('http://127.0.0.1:8080/bbsproject/api/list',function(data){
+	$.getJSON('http://localhost:8080/bbsproject/api/list',function(data){
 		$(data.bbs).each(function(idx,ele){
 			$('<tr/>')	
 			.append($('<td/>').html('<a href="detail.jsp?bbsID='+ele.bbsID+'">'+ele.bbsID+'</a>'))
