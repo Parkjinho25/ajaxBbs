@@ -95,7 +95,7 @@ $(function(){
 });
 function getOne(bbsID){
 	$.ajax({
-		  url: 'http://127.0.0.1:8080/bbsproject/api/list/' + bbsID,
+		  url: 'http://192.168.99.100:8080/bbsproject/api/list/' + bbsID,
 		  type: 'get',
 		  contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 		  data: {bbsID:bbsID},
@@ -110,8 +110,8 @@ function getOne(bbsID){
 function updateOne(form){
 	var bbsID=location.search.substr(location.search.indexOf('=')+1);
 	var param=$(form).serialize();
-    $.post('http://127.0.0.1:8080/bbsproject/api/list/'+bbsID , param,function(data){
-        location.href='http://127.0.0.1:8080/bbsproject/detail.jsp?bbsID='+bbsID;
+    $.post('http://192.168.99.100:8080/bbsproject/api/list/'+bbsID , param,function(data){
+        location.href='http://192.168.99.100:8080/bbsproject/detail.jsp?bbsID='+bbsID;
     });
 }
 </script>

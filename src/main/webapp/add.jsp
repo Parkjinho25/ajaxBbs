@@ -99,9 +99,9 @@ function insertOne(target){
     			bbsTitle:$('#bbsTitle').val(),
     			bbsContent:$('#bbsContent').val()
     			}
-    $.post('http://127.0.0.1:8080/bbsproject/api/list',$.param(param),function(data){
+    $.post('http://192.168.99.100:8080/bbsproject/api/list',$.param(param),function(data){
         console.log('success',data);
-        location.href='http://localhost:8080/bbsproject/index.jsp';
+        location.href='http://192.168.99.100:8080/bbsproject/index.jsp';
     });
 }
 </script>
