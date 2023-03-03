@@ -111,7 +111,7 @@ function updateOne(form){
 	var bbsID=location.search.substr(location.search.indexOf('=')+1);
 	var param=$(form).serialize();
     $.post('http://192.168.99.100:8080/bbsproject/api/list/'+bbsID , param,function(data){
-        location.href='http://localhost:8080/bbsproject/detail.jsp?bbsID='+bbsID;
+        location.href='http://192.168.99.100:8080/bbsproject/detail.jsp?bbsID='+bbsID;
     });
 }
 </script>

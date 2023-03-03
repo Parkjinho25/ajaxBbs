@@ -164,7 +164,7 @@ function deleteOne(bbsID){
 			 url: 'http://192.168.99.100:8080/bbsproject/api/list/'+ bbsID,
 			 type: 'delete',
 			 success: function(){
-				location.href='http://localhost:8080/bbsproject/index.jsp';
+				location.href='http://192.168.99.100:8080/bbsproject/index.jsp';
 			 },
 			 error: function(xhr,status,err){
 				  alert("에러("+status+")");

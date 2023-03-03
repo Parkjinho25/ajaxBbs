@@ -119,7 +119,7 @@ var login = function () {
 				userPassword:$('#login input').eq(1).val()
 				};
 	$.post('http://192.168.99.100:8080/bbsproject/user/login', $.param(param), function(data,info){
-		location.href='http://localhost:8080/bbsproject/index.jsp';
+		location.href='http://192.168.99.100:8080/bbsproject/index.jsp';
 	});
 };
 
