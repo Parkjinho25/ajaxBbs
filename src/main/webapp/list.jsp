@@ -118,14 +118,14 @@ var login = function () {
 				userID:$('#login input').eq(0).val(),
 				userPassword:$('#login input').eq(1).val()
 				};
-	$.post('http://192.168.99.100:8080/bbsproject/user/login', $.param(param), function(data,info){
-		location.href='http://192.168.99.100:8080/bbsproject/index.jsp';
+	$.post('http://localhost:8080/bbsproject/user/login', $.param(param), function(data,info){
+		location.href='http://localhost:8080/bbsproject/index.jsp';
 	});
 };
 
 
 function getList() {
-	$.getJSON('http://192.168.99.100:8080/bbsproject/api/list',function(data){
+	$.getJSON('http://localhost:8080/bbsproject/api/list',function(data){
 		$(data.bbs).each(function(idx,ele){
 			$('<tr/>')	
 			.append($('<td/>').html('<a href="detail.jsp?bbsID='+ele.bbsID+'">'+ele.bbsID+'</a>'))
@@ -133,7 +133,7 @@ function getList() {
             .append($('<td/>').html('<a href="detail.jsp?bbsID='+ele.bbsID+'">'+ele.userID+'</a>'))
             .append($('<td/>').html('<a href="detail.jsp?bbsID='+ele.bbsID+'">'+ele.bbsDate.substring(5, 11)+ ele.bbsDate.substring(11, 13) + "시"
 					+ ele.bbsDate.substring(14, 16) + "분" +'</a>'))
-          .appendTo('.tbody');
+          	.appendTo('.tbody');
 			
 		});
 	});
