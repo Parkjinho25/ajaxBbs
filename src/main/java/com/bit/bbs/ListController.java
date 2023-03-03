@@ -24,6 +24,7 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setHeader("Access-Control-Allow-Origin","*");
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		resp.setHeader("Access-Control-Allow-Methods","GET");
 		resp.setContentType("application/json; charset=utf8");	
 		ServletContext context = req.getServletContext();
@@ -46,6 +47,7 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setHeader("Access-Control-Allow-Origin","*");
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		resp.setHeader("Access-Control-Allow-Methods","POST");
 		resp.setContentType("application/json; charset=utf8");
 		ServletContext context = req.getServletContext();

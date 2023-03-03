@@ -30,6 +30,7 @@ public class BbsController extends HttpServlet {
 		int bbsID = Integer.parseInt(arr[arr.length	-1]);
 		System.out.println(req.getParameter("bbsID"));
 		resp.setHeader("Access-Control-Allow-Origin", "*");	
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		resp.setHeader("Access-Control-Allow-Methods","GET");
 		resp.setContentType("application/json; charset=utf8");
 		try {
@@ -60,6 +61,7 @@ public class BbsController extends HttpServlet {
 		String userID = req.getParameter("userID");
 		
 		resp.setHeader("Access-Control-Allow-Origin", "*");	
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		resp.setHeader("Access-Control-Allow-Methods","POST");
 		req.setCharacterEncoding("UTF-8");
 		try {
@@ -83,6 +85,7 @@ public class BbsController extends HttpServlet {
 		int bbsID = Integer.parseInt(arr[arr.length	-1]);
 		String userID = req.getParameter("userID");
 		resp.setHeader("Access-Control-Allow-Origin","*");
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		resp.setHeader("Access-Control-Allow-Methods","DELETE");
 		try {
 			BbsVo dto =dao.getOne(bbsID);

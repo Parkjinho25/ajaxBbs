@@ -118,14 +118,14 @@ var login = function () {
 				userID:$('#login input').eq(0).val(),
 				userPassword:$('#login input').eq(1).val()
 				};
-	$.post('http://localhost:8080/bbsproject/user/login', $.param(param), function(data,info){
-		location.href='http://localhost:8080/bbsproject/index.jsp';
+	$.post('http://127.0.0.1:8080/bbsproject/user/login', $.param(param), function(data,info){
+		location.href='http://127.0.0.1:8080/bbsproject/index.jsp';
 	});
 };
 
 
 function getList() {
-	$.getJSON('http://localhost:8080/bbsproject/api/list',function(data){
+	$.getJSON('http://127.0.0.1:8080/bbsproject/api/list',function(data){
 		$(data.bbs).each(function(idx,ele){
 			$('<tr/>')	
 			.append($('<td/>').html('<a href="detail.jsp?bbsID='+ele.bbsID+'">'+ele.bbsID+'</a>'))
